@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emerie Fan Page | Login</title>
+    <style>
+        /* Facebook Standard Styling */
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .header-text {
+            color: #1877F2; /* Facebook Blue */
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .login-card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 396px;
+            box-sizing: border-box;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px 16px;
+            margin: 6px 0;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            font-size: 17px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #1877F2;
+            box-shadow: 0 0 0 2px #e7f3ff;
+        }
+
+        label {
+            font-size: 14px;
+            color: #606770;
+            margin-top: 10px;
+            display: block;
+            padding-left: 2px;
+        }
+
+        .login-btn {
+            width: 100%;
+            background-color: #1877F2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 12px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .login-btn:hover {
+            background-color: #166fe5;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #dadde1;
+            margin: 20px 0;
+        }
+
+        /* Welcome Section */
+        #welcome-screen {
+            display: none;
+            text-align: center;
+            background: #ffeb3b; /* Accent Yellow */
+            padding: 40px;
+            border-radius: 12px;
+            border: 4px solid #1877F2;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        #welcome-screen h2 {
+            color: #1877F2;
+            font-size: 2rem;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main-content">
+        <h1 class="header-text">EMERIE FAN PAGE</h1>
+
+        <div class="login-card" id="login-form-container">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            
+            <label for="dob">Birthday</label>
+            <input type="date" id="dob">
+
+            <label for="gender">Gender</label>
+            <select id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <button class="login-btn" onclick="login()">Log In</button>
+            
+            <hr>
+            <div style="text-align: center;">
+                <a href="#" style="color: #1877F2; text-decoration: none; font-size: 14px;">Forgot password?</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="welcome-screen">
+        <h2 id="welcome-text"></h2>
+        <p style="margin-top: 15px; font-weight: bold;">You are now part of the exclusive Emerie community.</p>
+    </div>
+
+    <script>
+        function login() {
+            const user = document.getElementById('username').value;
+            
+            if (user.trim() === "") {
+                alert("Please enter your username to join the fan page!");
+                return;
+            }
+
+            // Hide the login UI
+            document.getElementById('main-content').style.display = 'none';
+
+            // Show and populate the welcome screen
+            const welcomeScreen = document.getElementById('welcome-screen');
+            const welcomeText = document.getElementById('welcome-text');
+            
+            welcomeText.innerText = `Welcome to the fan page of Emerie, ${user}!`;
+            welcomeScreen.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
+    
